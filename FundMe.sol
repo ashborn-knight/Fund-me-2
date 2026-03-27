@@ -1,16 +1,19 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >= 0.6.6 < 0.9.0;
+pragma solidity ^ 0.8.18;
 
-import "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol";
+contract FundMe {
 
-contract FundMe{
+//function takes and checks to see if sender sneds amount greater than the amount specified
 
-    mapping(address => uint256) public addressToAmountFunded;
+    function fund() public payable {
+        require(msg.value > 1e18,"didnt send enough ETH");//1e18 = 1 ETH = 1000000000000000000 = 1 * 10 ** 18
 
-    function fund() public payable{
-        addressToAmountFunded[msg.sender] + msg.value;
-        //more workings and workings
 
     }
+
+    function withdraw() public{
+
+    }
+
 }
