@@ -15,11 +15,17 @@ contract FundMe {
     }
 
     function getPrice() public{
-        //Address 
+        //Address 0x694AA1769357215DE4FAC081bf1f309aDC325306
+        //ABI 
   
     }
 
     function getConversionRate() public{
+
+    }
+
+    function getVersion() public view returns(uint256){
+        return AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306).version();
 
     }
     
