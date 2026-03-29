@@ -6,6 +6,25 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "funder",
+						"type": "address"
+					}
+				],
+				"name": "addressToAmountFunded",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "amountFunded",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "fund",
 				"outputs": [],
@@ -16,42 +35,16 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "ethAmount",
-						"type": "uint256"
-					}
-				],
-				"name": "getConversionRate",
-				"outputs": [
-					{
-						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getPrice",
+				"name": "funders",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "address",
 						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getVersion",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -107,11 +100,18 @@
 			]
 		},
 		"FundMe.sol": {
-			"keccak256": "0xf26dbbde7c1aee090865ae04191753438d265ad6ed97eac5d11a32effa6d89af",
+			"keccak256": "0x3327434ff0f35f1b4a620af383f6cd29d519bad2e191448ec2c8820c78f6dd39",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://49ca86a5159b1c8739823f09cac2468a02bf6f1e3b319af511ace6ea4ed6aa18",
-				"dweb:/ipfs/QmR5DBte5Qx7jFhfA3iD3UfoDKAb1rXRoJdGKafqovnnsk"
+				"bzz-raw://d6a23e3a20fb7a0e3c444eae9c20fa7673dc5fcbf0b30e685db119780a4a9b65",
+				"dweb:/ipfs/QmWvqCh3jNHiLo8bd5uomLxYuo98VjmYxNtEnDAufFqPyP"
+			]
+		},
+		"PriceConverter.sol": {
+			"keccak256": "0x8e7aa61122524bb4df8ced3897849bb6faaea9241e94a32a66a1c3792603b5c5",
+			"urls": [
+				"bzz-raw://bb45c47cafb75bb683d0ad9d3a4a12b24ae7a5e1538bffe1c7385ae4c203af93",
+				"dweb:/ipfs/QmeBcrd51gGazoa5Qvo32AwxwYdX3XVoLYRT4oTDpD4BQc"
 			]
 		}
 	},
