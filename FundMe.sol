@@ -16,12 +16,15 @@ contract FundMe {
 
     }
 
-    function getPrice() public{
+    function getPrice() public view returns(uint256){
         //Address 0x694AA1769357215DE4FAC081bf1f309aDC325306
         //ABI 
         AggregatorV3Interface priceFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
         (,int256 price,,,) = priceFeed.latestRoundData();
-  
+        //price of ETH in Usd
+        //1000000000000000000 wei
+        return uint256(price * 1e10);
+
     }
 
     function getConversionRate() public{
