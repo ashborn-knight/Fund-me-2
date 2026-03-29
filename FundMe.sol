@@ -9,38 +9,20 @@ contract FundMe {
     uint256 public minimumUsd = 5 * 1e18;
 
     address[] public funders;
+    mapping(address funder => uint256 amountFunded) public addressToAmountFunded;
 
 //function takes and checks to see if sender sneds amount greater than the amount specified
 
     function fund() public payable {
         require(msg.value >= minimumUsd,"didnt send enough ETH");//1e18 = 1 ETH = 1000000000000000000 = 1 * 10 ** 18
         funders.push(msg.sender);
+        addressToAmountFunded[msg.sender] = addressToAmountFunded[msg.sender] + msg.value;
+
+
 
 
     }
 
-    function getPrice() public view returns(uint256){
-        //Address 0x694AA1769357215DE4FAC081bf1f309aDC325306
-        //ABI 
-        AggregatorV3Interface priceFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
-        (,int256 price,,,) = priceFeed.latestRoundData();
-        //price of ETH in Usd
-        //1000000000000000000 wei
-        return uint256(price * 1e10);
-
-    }
-
-    function getConversionRate(uint256 ethAmount) public view returns (uint256){
-        uint256 ethPrice = getPrice();
-        uint256 ethAmountInUsd = (ethPrice * ethAmount)/1e18;
-        return ethAmountInUsd;
-
-    }
-
-    function getVersion() public view returns(uint256){
-        return AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306).version();
-
-    }
     
 }
 
