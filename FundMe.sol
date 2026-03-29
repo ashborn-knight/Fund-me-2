@@ -6,7 +6,7 @@ import {AggregatorV3Interface} from  "@chainlink/contracts/src/v0.8/shared/inter
 
 contract FundMe {
 
-    uint256 public minimumUsd = 5;
+    uint256 public minimumUsd = 5 * 1e18;
 
 //function takes and checks to see if sender sneds amount greater than the amount specified
 
@@ -27,7 +27,10 @@ contract FundMe {
 
     }
 
-    function getConversionRate() public{
+    function getConversionRate(uint256 ethAmount) public view returns (uint256){
+        uint256 ethPrice = getPrice();
+        uint256 ethAmountInUsd = (ethPrice * ethAmount)/1e18;
+        return ethAmountInUsd;
 
     }
 
