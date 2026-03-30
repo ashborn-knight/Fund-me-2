@@ -25,6 +25,13 @@ contract FundMe {
 
     }
 
+
+    function withdraw() public{
+        //for loop
+        //for(starting index,stopping index,step amount)
+        
+    }
+
     
 }
 
