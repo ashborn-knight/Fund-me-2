@@ -63,7 +63,11 @@ contract FundMe {
 
 
     }
-
+ 
+   modifier onlyOwner(){
+    require(msg.sender == owner,"Sender is not owner");
+    _:
+   }
     
 }
 
