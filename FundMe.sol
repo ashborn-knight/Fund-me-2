@@ -18,7 +18,7 @@ contract FundMe {
         
         require(msg.value.getConversionRate() >= minimumUsd,"didnt send enough ETH");//1e18 = 1 ETH = 1000000000000000000 = 1 * 10 ** 18
         funders.push(msg.sender);
-        addressToAmountFunded[msg.sender] = addressToAmountFunded[msg.sender] + msg.value;
+        addressToAmountFunded[msg.sender] +=  msg.value;
 
 
 
@@ -29,7 +29,10 @@ contract FundMe {
     function withdraw() public{
         //for loop
         //for(starting index,stopping index,step amount)
-        
+        for(uint256 funderIndex = 0; funderIndex < funders.length; funderIndex++ ){
+            address funder = funders[funderIndex];
+            addressToAmountFunded[funder] = 0;
+        }
     }
 
     
