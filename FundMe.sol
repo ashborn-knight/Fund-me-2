@@ -13,6 +13,12 @@ contract FundMe {
     mapping(address funder => uint256 amountFunded) public addressToAmountFunded;
 
 //function takes and checks to see if sender sneds amount greater than the amount specified
+     address public owner;
+
+    constructor (){
+        owner = msg.sender;
+
+    }
 
     function fund() public payable {
         
@@ -27,6 +33,7 @@ contract FundMe {
 
 
     function withdraw() public{
+        require(msg.sender == owner,"Must be owner");
         //for loop
         //for(starting index,stopping index,step amount)
         for(uint256 funderIndex = 0; funderIndex < funders.length; funderIndex++ ){
@@ -41,10 +48,10 @@ contract FundMe {
         //now withdrawing
         //transfer
         //payable(msg.sender) data type type casted to payable
-        payable(msg.sender).transfer(address(this).balance);
+      //  payable(msg.sender).transfer(address(this).balance);
         //send
-        bool sendSuccess = payable(msg.sender).send(address(this).balance);
-        require(sendSuccess,"Send failed");
+       // bool sendSuccess = payable(msg.sender).send(address(this).balance);
+       // require(sendSuccess,"Send failed");
 
         //call
         (bool callSuccess,) = payable(msg.sender).call{value: address(this).balance }("");
